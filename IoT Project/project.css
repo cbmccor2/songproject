@@ -1,0 +1,25 @@
+#wrapper {
+    width: 80%;
+    margin: auto;
+    background-color: #47b0f6;
+    text-align: center;
+    box-shadow: 3px 3px 3px 3px;
+    color: #fff8b9;
+}
+
+body {
+    background-color: #cbeaff;
+}
+
+#wrapper2 {
+    width: 80%;
+    margin: auto;
+    background-color: #fff8b9;
+    text-align: center;
+    box-shadow: 3px 3px 3px 3px;
+    color: #47b0f6;
+}
+
+h2 {
+    color: #ff8080;
+}
