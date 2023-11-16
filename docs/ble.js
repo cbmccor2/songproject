@@ -1,3 +1,12 @@
+// UUIDs for the service and characteristic
+const serviceUuid = '6e400001-b5a3-f393-e0a9-e50e24dcca9e';
+const characteristicUuid = '6e400002-b5a3-f393-e0a9-e50e24dcca9e';
+
+let devices = [];
+let device_characteristics = [];
+
+
+
 
 async function connect() {
     try {
@@ -71,3 +80,24 @@ async function connect_aux(index) {
     console.log('> Bluetooth Device disconnected');
     connect_aux(index);
   }
+
+  const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+  
+
+
+function handleBLEMessage(event) {
+  const value = event.target.value;
+  const decoder = new TextDecoder('utf-8');
+  const message = decoder.decode(value);
+  console.log(message);
+}
