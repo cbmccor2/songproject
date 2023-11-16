@@ -23,7 +23,7 @@ async function connect() {
     
   
   
-      console.log('Connected to device : ', device);
+      //console.log('Connected to device : ', device);
   
   
   
@@ -45,7 +45,7 @@ async function connect() {
       var index = devices.indexOf(device);
       if (index == -1) {
         devices.push(device);
-        sendBLEMessage("start", devices.length - 1);
+        //sendBLEMessage("start", devices.length - 1);
         device.addEventListener('gattserverdisconnected', onDisconnected(index));
       }
       
@@ -60,7 +60,26 @@ async function connect() {
   
   }
   
+  async function exponentialBackoff(max, delay, toTry, success, fail) {
+    try {
+      const result = await toTry();
+      success(result);
+    } catch(error) {
+      if (max === 0) {
+        return fail();
+      }
+      time('Retrying in ' + delay + 's... (' + max + ' tries left)');
+      setTimeout(function() {
+        exponentialBackoff(--max, delay * 2, toTry, success, fail);
+      }, delay * 1000);
+    }
+  }
+  
+  function time(text) {
+    console.log('[' + new Date().toJSON().substr(11, 8) + '] ' + text);
+  }
 
+  
 
 async function connect_aux(index) {
     exponentialBackoff(3 /* max retries */, 2 /* seconds delay */,
