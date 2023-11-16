@@ -12,7 +12,7 @@ async function connect() {
     try {
       const device = await navigator.bluetooth.requestDevice({
         optionalServices: [serviceUuid],
-         acceptAllDevices: true,
+        // acceptAllDevices: true,
         filters: [
           { namePrefix: "MM-" },
         ]
@@ -23,7 +23,7 @@ async function connect() {
     
   
   
-      console.log('Connected to device : ', device.name);
+      console.log('Connected to device : ', device);
   
   
   
