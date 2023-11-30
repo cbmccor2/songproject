@@ -120,3 +120,46 @@ function handleBLEMessage(event) {
   const message = decoder.decode(value);
   console.log(message);
 }
+
+
+// OG Data Stream Parsing Code
+// 
+// const accelerometerData = {x:0, y:0, z:0};
+//         const audio = document.getElementById('soundBrain');
+//         var running = 0;
+
+//         function checkAccel(data){
+//             const thresholdX = 5;
+//             const thresholdY = 5;
+//             const thresholdZ = 5;
+
+//             if(Math.abs(data.x) > thresholdX || 
+//                 Math.abs(data.y) > thresholdY ||
+//                 Math.abs(data.z) > thresholdZ)
+//             {
+//                 return 1;
+//             }
+//             else{
+//                 return 0;
+//             }
+//         }
+
+// document.addEventListener('devicemotion', (event) => {
+//     accelerometerData.x = event.accelerationIncludingGravity.x;
+//     accelerometerData.y = event.accelerationIncludingGravity.y;
+//     accelerometerData.z = event.accelerationIncludingGravity.z;
+
+//     // Call the function to check the threshold
+//     if(checkAccel() = 1){
+//         audio.pause();
+//     }
+//     else{
+//         console.log('it did not work!');
+//     }
+// });
+const Data(pacNum, gyroX, gyroY, gyroZ, 
+  accX, accY, accZ, magX, magY, magZ,
+  quatX, quatY, quatZ, quatW, mac){
+    
+
+}
