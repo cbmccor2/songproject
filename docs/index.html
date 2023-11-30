@@ -7,10 +7,45 @@
         <h1>Audio Play </h1>
         </div>
     </head>
+    <script type="text/javascript">
+        const accelerometerData = {x:0, y:0, z:0};
+        const audio = document.getElementById('soundBrain');
+        var running = 0;
+
+        function checkAccel(data){
+            const thresholdX = 5;
+            const thresholdY = 5;
+            const thresholdZ = 5;
+
+            if(Math.abs(data.x) > thresholdX || 
+                Math.abs(data.y) > thresholdY ||
+                Math.abs(data.z) > thresholdZ)
+            {
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+
+        document.addEventListener('devicemotion', (event) => {
+            accelerometerData.x = event.accelerationIncludingGravity.x;
+            accelerometerData.y = event.accelerationIncludingGravity.y;
+            accelerometerData.z = event.accelerationIncludingGravity.z;
+
+            // Call the function to check the threshold
+            if(checkAccel() = 1){
+                audio.pause();
+            }
+            else{
+                console.log('it did not work!');
+            }
+        });
+    </script>
     <body>
         <div id="wrapper2">
             <br>
-        <audio controls>
+        <audio controls id="soundBrain">
             <source src="leasebitcrush.wav" type="audio/mpeg">
           Your browser does not support the audio element.
           </audio>
