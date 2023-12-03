@@ -119,7 +119,26 @@ function handleBLEMessage(event) {
   const decoder = new TextDecoder('utf-8');
   const message = decoder.decode(value);
   console.log(message);
+  const data = message.split(",");
+  console.log(data[4]);
+
+  if(data[4] > 1.2){
+    console.log("pauseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+  }
 }
+
+// if(accX >= 3){
+//   Audio.pause();
+// }
+// else if(accX <= -3){
+//   Audio.play();
+// }
+// else if(accY >= 2){
+//   Audio.currentTime += 5;
+// }
+// else if(accY <= -2){
+//   Audio.currentTime -= 5;
+// }
 
 
 // OG Data Stream Parsing Code
@@ -157,9 +176,9 @@ function handleBLEMessage(event) {
 //         console.log('it did not work!');
 //     }
 // });
-const Data(pacNum, gyroX, gyroY, gyroZ, 
-  accX, accY, accZ, magX, magY, magZ,
-  quatX, quatY, quatZ, quatW, mac){
+// const Data(pacNum, gyroX, gyroY, gyroZ, 
+//   accX, accY, accZ, magX, magY, magZ,
+//   quatX, quatY, quatZ, quatW, mac){
     
 
-}
+// }
