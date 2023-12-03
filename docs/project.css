@@ -25,7 +25,8 @@ h2 {
 }
 
 #bluetoothSuite{
-    
+    align-items: center;
+    margin: auto;
     border: 8px outset #50aaff;
     padding: 10rem;
 }
