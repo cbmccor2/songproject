@@ -7,7 +7,10 @@
         <h1>Audio Play </h1>
         </div>
     </head>
-    <script type="text/javascript">
+    <script src="./ble.js">
+
+    </script>
+    <!-- <script type="text/javascript">
         const accelerometerData = {x:0, y:0, z:0};
         const audio = document.getElementById('soundBrain');
         var running = 0;
@@ -41,20 +44,23 @@
                 console.log('it did not work!');
             }
         });
-    </script>
+    </script> -->
     <body>
         <div id="wrapper2">
             <br>
-        <audio controls id="soundBrain">
-            <source src="leasebitcrush.wav" type="audio/mpeg">
-          Your browser does not support the audio element.
-          </audio>
-          <h2>Controls</h2>
-          <p>Shake the watch left and right to start the song!
-             Shake the watch up and down to stop the song!
-             Spin the watch to restart the song!
-          </p>
-          <br>
-          </div>
+            <audio controls id="soundBrain">
+                <source src="leasebitcrush.wav" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            <h2>Controls</h2>
+            <p>Shake the watch left and right to start the song!
+                Shake the watch up and down to stop the song!
+                Spin the watch to restart the song!
+            </p>
+            <br>
+        </div>
+        <div id="bluetoothSuite">
+            <button onclick="connect()" id="connectButton"> Connect </button>
+        </div>
     </body>
 </html>

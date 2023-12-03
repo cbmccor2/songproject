@@ -119,26 +119,40 @@ function handleBLEMessage(event) {
   const decoder = new TextDecoder('utf-8');
   const message = decoder.decode(value);
   console.log(message);
+  
+  // make array of info 
   const data = message.split(",");
-  console.log(data[4]);
+  
+  // confirm delim split is working
+  console.log("accX: " + data[4] + ", accY: " + data[5]);
+  
+  // assign accX and Y to their corresponding spot in the data array
+  const accX = data[4];
+  const accY = data[5];
 
-  if(data[4] > 1.2){
-    console.log("pauseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+  //fetch audio element
+  audio1 = document.getElementById('soundBrain');
+
+  // command algo
+  if(accX >= 3){
+    audio1.pause();
+    console.log("pause!")
+  }
+  else if(accX <= -3){
+    audio1.play();
+    console.log("play!")
+  }
+  else if(accY >= 2){
+    audio1.currentTime += 5;
+    console.log("skip ahead!")
+  }
+  else if(accY <= -2){
+    audio1.currentTime -= 5;
+    console.log("go back!");
   }
 }
 
-// if(accX >= 3){
-//   Audio.pause();
-// }
-// else if(accX <= -3){
-//   Audio.play();
-// }
-// else if(accY >= 2){
-//   Audio.currentTime += 5;
-// }
-// else if(accY <= -2){
-//   Audio.currentTime -= 5;
-// }
+
 
 
 // OG Data Stream Parsing Code
