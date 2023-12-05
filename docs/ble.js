@@ -134,19 +134,19 @@ function handleBLEMessage(event) {
   audio1 = document.getElementById('soundBrain');
 
   // command algo
-  if(accX >= 3){
+  if(accX >= 2.5){
     audio1.pause();
     console.log("pause!")
   }
-  else if(accX <= -3){
+  else if(accX <= -2.5){
     audio1.play();
     console.log("play!")
   }
-  else if(accY >= 2){
+  else if(accY >= 3){
     audio1.currentTime += 5;
     console.log("skip ahead!")
   }
-  else if(accY <= -2){
+  else if(accY <= -3){
     audio1.currentTime -= 5;
     console.log("go back!");
   }
